@@ -19,10 +19,23 @@ class App extends Component{
   unsubsribeFromAuth = null
 
   componentDidMount() {
-    auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user);
-      //this.setState({ currentUser: user });
-      console.log(user);
+    auth.onAuthStateChanged(async userAuth => {
+      if (userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
+        //if storing google user authentication, 
+        userRef.onSnapshot(snapShot => {
+          console.log('Get Firebase',snapShot.data());  //snapShot.data() includes createdAt, displayName and email
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          }, () => {
+            console.log('this.state', this.state);
+          })
+        })     
+      }
+      this.setState({currentUser: userAuth})
     })
   }
 
