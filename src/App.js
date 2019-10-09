@@ -6,18 +6,14 @@ import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-out/sign-in-out.component';
 import { auth , createUserProfileDocument } from './firebase/firebase.utils';
-
 class App extends Component{
   constructor() {
     super();
-
     this.state = {
       currentUser: null
     }
   }
-
   unsubsribeFromAuth = null
-
   componentDidMount() {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth){
@@ -38,11 +34,9 @@ class App extends Component{
       this.setState({currentUser: userAuth})
     })
   }
-
   componentWillUnmount() {
     this.unsubsribeFromAuth();
   }
-
   render() {
     return (
       <div>
@@ -56,5 +50,4 @@ class App extends Component{
     );
   }
 }
-
 export default App;
