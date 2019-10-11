@@ -38,9 +38,10 @@ class App extends Component{
     this.unsubsribeFromAuth();
   }
   render() {
+    // remove <Header currentUser={this.state.currentUser}/> when using redux
     return (
       <div>
-        <Header currentUser={this.state.currentUser}/>
+        <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />

@@ -1,3 +1,4 @@
+//https://redux.js.org/api/applymiddleware
 import { createStore, applyMiddleware } from 'redux';
 
 // create a redux store like insurance company's departments
