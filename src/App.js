@@ -59,11 +59,9 @@ class App extends Component{
     );
   }
 }
-
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 })
-
 export default connect(mapStateToProps, {setCurrentUser})(App);
 /*
 const mapDispatchToProps = dispatch => ({  // https://react-redux.js.org/using-react-redux/connect-mapdispatch
