@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 // create a redux store like insurance company's departments
 import logger from 'redux-logger';
 
-import rootReducer from './root-reducer';
+import rootReducer from './root-reducer';   //call filename, rootReducer
 
 const middlewares = [logger];
 
