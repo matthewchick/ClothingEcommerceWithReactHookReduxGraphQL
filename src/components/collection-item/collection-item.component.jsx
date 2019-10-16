@@ -21,9 +21,8 @@ const CollectionItem=({ item, addItem }) => {
         <CustomButton onClick={() => addItem(item)} inverted>Add to cart</CustomButton>
     </div>
 )};
-
+// mapDispatchToProps - pass redux setState to the props
 const mapDispatchToProps = dispatch => ({  
     addItem: item => dispatch(addItem(item))  //call addItem() in cart.action
 }); 
-
 export default connect(null, mapDispatchToProps)(CollectionItem);

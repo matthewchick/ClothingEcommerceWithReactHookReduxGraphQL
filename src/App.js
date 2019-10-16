@@ -59,6 +59,8 @@ class App extends Component{
     );
   }
 }
+
+//map redux state to props
 const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 })
