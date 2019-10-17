@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.actions';
-import { createStructuredSelector } from 'reselect';
+//import { createStructuredSelector } from 'reselect';
 import './checkout-item.styles.scss';
 
 //https://www.w3schools.com/charsets/ref_utf_dingbats.asp
