@@ -1,12 +1,23 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-
-const ShopPage = ({ collections }) => (
-    <div className='shop-page'>
-        <CollectionsOverview />
-    </div>
-)
+import CategoryPage from '../category/category.component'; 
+/*
+When the router'path and location are successfully matched,
+a 'match' object is created. 
+This object contains information about the 'URL' and the 'path'
+It is used for nested route  like /shop/hats, /shop/jacket ...
+*/
+const ShopPage = ({ match }) => {
+    console.log('match', match);
+    return (
+        <div className='shop-page'>
+            <Route exact path={`${match.path}`} component={CollectionsOverview} />
+            <Route path={`${match.path}/:categoryId`} component={CategoryPage} />
+        </div>
+    )
+}
 
 export default ShopPage;
 /*

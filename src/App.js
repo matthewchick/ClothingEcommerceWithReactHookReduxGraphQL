@@ -49,6 +49,9 @@ class App extends Component{
   componentWillUnmount() {
     this.unsubsribeFromAuth();
   }
+  /*
+  'Switch' is used to wrap multiple <Route/> components. It only picks the first matching
+  */
   render() { // remove <Header currentUser={this.state.currentUser}/> when using redux
     return (
       <div>

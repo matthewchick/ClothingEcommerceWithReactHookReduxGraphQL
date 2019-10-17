@@ -7,6 +7,10 @@ import './menu-item.styles.scss';
         height: 380px;
     }
 */
+/*
+Each router creates a 'history' object that it uses to keep track of the current location
+and re-renders the application whenever this location changes.
+*/
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
     <div className={`${size} menu-item`}
         onClick={() => history.push(`${match.url}${linkUrl}`)}
