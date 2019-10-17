@@ -8,7 +8,7 @@ import storage from 'redux-persist/lib/storage';
 import userReducer from './user/user.reducer';
 import cartReducer from './cart/cart.reducer';
 import directoryReducer from './directory/directory.reducer';
-
+import shopReducer from './shop/shop.reducer';
 /*
 key: this value will define what will be the key that we will use as identifier to save the persisted information. 
 Once created must be the same always (if you change the name after there was a persistence, 
@@ -29,7 +29,8 @@ const rootReducer = combineReducers({
     //user, cart and directory are state
     user: userReducer,
     cart: cartReducer,
-    directory: directoryReducer
+    directory: directoryReducer,
+    shop: shopReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
