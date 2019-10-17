@@ -1,12 +1,5 @@
 import { createSelector } from 'reselect';
 
-const COLLECTION_ID_MAP = {
-    hats: 1,
-    sneakers: 2,
-    jackets: 3,
-    womens: 4,
-    mens: 5
-}
 // A selector to retrieve shop from a store
 const selectShop = state => state.shop;
 //const selectUser = state => state.user;
@@ -15,7 +8,20 @@ export const selectCollections = createSelector(
     [selectShop],
     shop => shop.collections  // put shop collections inside shop.reducer.js into state
 );
+// method 2 https://www.kirupa.com/html5/hashtables_vs_arrays.htm
+export const selectCollection = collectionUrlParam => createSelector(  //selectCollection(collectionUrlParam)
+    [selectCollections],
+    collections => collections[collectionUrlParam]        
+)
 
+/* method 1
+const COLLECTION_ID_MAP = {
+    hats: 1,
+    sneakers: 2,
+    jackets: 3,
+    womens: 4,
+    mens: 5
+}
 export const selectCollection = collectionUrlParam => createSelector(  //selectCollection(collectionUrlParam)
     [selectCollections],
     collections =>
@@ -24,6 +30,7 @@ export const selectCollection = collectionUrlParam => createSelector(  //selectC
         )
 
 )
+*/
 /* currying https://stackoverflow.com/questions/36314/what-is-currying
 function add (a, b) {
   return a + b;
