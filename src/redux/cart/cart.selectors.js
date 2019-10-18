@@ -36,3 +36,10 @@ export const selectCartTotal = createSelector(
         (accumalatedTotal, cartItem) => accumalatedTotal + cartItem.quantity * cartItem.price, 0
     )
 );
+
+/*
+const INITIAL_STATE = {
+    hidden: true,    // check cart button whether it is clicked
+    cartItems: []
+}
+*/
