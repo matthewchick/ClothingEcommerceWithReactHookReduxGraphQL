@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // https://react-redux.js.org/api/connect
 // The connect() function connects a React component to a Redux store.
 import { connect } from 'react-redux';
@@ -10,6 +10,32 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink, OptionDiv } from './header.styles';  //use styled component
+
+const Header = ({ currentUser, hidden }) => (
+    <HeaderContainer>
+        <LogoContainer to ="/">
+            <Logo className='logo'/>
+        </LogoContainer>
+        <OptionsContainer>
+            <OptionLink to ='/shop'>SHOP</OptionLink>
+            <OptionLink to ='/contact'>CONTACT</OptionLink>
+            {
+            currentUser ? (
+            <OptionDiv onClick={() => auth.signOut()}>
+                SIGN OUT
+            </OptionDiv>
+            ) : (
+            <OptionLink to='/signin'>
+                SIGN IN
+            </OptionLink>
+            )}
+            <CartIcon />
+        </OptionsContainer>
+        { hidden ? null : <CartDropdown /> }       
+    </HeaderContainer>
+);
+/*
 import './header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => (
@@ -35,7 +61,7 @@ const Header = ({ currentUser, hidden }) => (
         { hidden ? null : <CartDropdown /> }       
     </div>
 );
-
+*/
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser, 
     hidden: selectCartHidden
