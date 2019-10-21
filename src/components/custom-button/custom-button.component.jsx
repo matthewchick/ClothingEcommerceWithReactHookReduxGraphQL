@@ -1,5 +1,5 @@
 import React from 'react';
-
+/*
 import { CustomButtonContainer } from './custom-button.styles';
 
 const CustomButton = ({children, ...props}) => (
@@ -7,7 +7,7 @@ const CustomButton = ({children, ...props}) => (
         {children}
     </CustomButtonContainer>
 )
-/*
+*/
 import './custom-button.styles.scss';
 
 const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps}) => (
@@ -20,5 +20,5 @@ const CustomButton = ({ children, isGoogleSignIn, inverted, ...otherProps}) => (
         {children}
     </button>
 )
-*/
+
 export default CustomButton;
