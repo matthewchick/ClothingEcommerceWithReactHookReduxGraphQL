@@ -11,12 +11,12 @@ export const selectCollections = createSelector(
 // change collections object into an array by using Object.keys(collections)
 export const selectCollectionsForPreview = createSelector(
     [selectCollections],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]): []
 );
 // method 2 https://www.kirupa.com/html5/hashtables_vs_arrays.htm
 export const selectCollection = collectionUrlParam => createSelector(  //selectCollection(collectionUrlParam)
     [selectCollections],
-    collections => collections[collectionUrlParam]        
+    collections => (collections ? collections[collectionUrlParam] : null)      
 );
 
 /* method 1
