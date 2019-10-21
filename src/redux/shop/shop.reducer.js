@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 const shopReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case: ShopActionTypes.UPDATE_COLLCECTIONS:
+        case ShopActionTypes.UPDATE_COLLCECTIONS:
             return {
                 ...state,
                 collections: action.payload

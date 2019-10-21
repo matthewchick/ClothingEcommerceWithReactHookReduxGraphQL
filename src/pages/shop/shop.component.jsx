@@ -6,7 +6,7 @@ import CollectionsOverview from '../../components/collections-overview/collectio
 import CollectionPage from '../collection/collection.component'; 
 
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
-import { updateCollections } from '../../redux/shop/shop.selectors';
+import { updateCollections } from '../../redux/shop/shop.actions';
 
 /*
 When the router'path and location are successfully matched,
