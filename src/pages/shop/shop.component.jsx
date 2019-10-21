@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component'; 
 
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
+import { updateCollections } from '../../redux/shop/shop.selectors';
 
 /*
 When the router'path and location are successfully matched,
@@ -16,9 +18,12 @@ class ShopPage extends Component {
     unsubscribeFromSnapshot = null;
 
     componentDidMount() {
+        const { updateCollections } = this.props;
         const collectionRef = firestore.collection('collections');
         collectionRef.onSnapshot(async snapshot => {
-            convertCollectionsSnapshotToMap(snapshot);
+            const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+            console.log('collectionsMap',collectionsMap);
+            updateCollections(collectionsMap);
         });
     }
     render() {
@@ -31,6 +36,11 @@ class ShopPage extends Component {
         )  
     }
 }
+const mapDispatchToProps = dispatch => ({
+    updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap))
+});
+
+export default connect (null, mapDispatchToProps)(ShopPage);
 /*
 const ShopPage = ({ match }) => {
     console.log('match', match);
@@ -42,7 +52,7 @@ const ShopPage = ({ match }) => {
     )
 }
 */
-export default ShopPage;
+
 /*
 class ShopPage extends Component {
     constructor(props) {
