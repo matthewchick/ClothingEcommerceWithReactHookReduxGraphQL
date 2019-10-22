@@ -19,6 +19,10 @@ export const selectCollection = collectionUrlParam => createSelector(  //selectC
     collections => (collections ? collections[collectionUrlParam] : null)      
 );
 
+export const selectIsCollectionFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+)
 /* method 1
 const COLLECTION_ID_MAP = {
     hats: 1,
