@@ -23,6 +23,11 @@ export const selectIsCollectionFetching = createSelector(
     [selectShop],
     shop => shop.isFetching
 )
+
+export const selectIsCollectionsLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collections    
+)
 /* method 1
 const COLLECTION_ID_MAP = {
     hats: 1,
